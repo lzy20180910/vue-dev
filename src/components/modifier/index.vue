@@ -25,7 +25,7 @@
       <button @click.stop="click2">我已经阻止了事件冒泡，不信你点点</button>
     </div>
 
-
+    <h1>这是新增加的</h1>
 
   </div>
 </template>
