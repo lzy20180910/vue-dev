@@ -25,9 +25,29 @@
       <button @click.stop="click2">我已经阻止了事件冒泡，不信你点点</button>
     </div>
 
-    <h1>这是新增加的</h1>
+    <!-- once -->
+    <p>自动将用户的输入值转为数值类型，但如果这个值无法被parseFloat解析，则会返回原来的值</p>
+    <div>
+      <button @click.once="click2">我的点击事件只会执行一次</button>
+    </div>
 
-    <h2>我又多加了一行，哈哈哈</h2>
+
+    <!-- 3.鼠标按钮修饰符，鼠标按钮修饰符针对的就是左键、右键、中键点击，有如下： -->
+    <!-- left 、right、middle -->
+    <!-- left -->
+    <button @click.left="click2">鼠标左键点击</button>
+    <!-- right -->
+    <button @contextmenu.prevent="click2" >鼠标右键点击</button>
+    <!-- middle -->
+    <button @click.middle="click2">鼠标中键点击</button>
+
+    
+    <!-- 3.键盘修饰符，键盘修饰符是用来修饰键盘事件（onkeyup，onkeydown）的，有如下： -->
+    <!-- keyCode存在很多，但vue为我们提供了别名，分为以下两种：
+    普通键（enter、tab、delete、space、esc、up...）
+    系统修饰键（ctrl、alt、meta、shift...） -->
+    <input type="text" @keyup.enter="asd" />
+
   </div>
 </template>
 
@@ -46,6 +66,9 @@ export default {
     },
     click2() {
       console.log('我是子元素事件')
+    },
+    asd() {
+      console.log('按了回车键了')
     }
   }
 }
